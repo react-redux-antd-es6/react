@@ -40,4 +40,3 @@ npm run lint
 + pages：存放的是我们的大部分业务文件
 + components：存放的是公用的一些组件  可以理解为jQuery框架的jQuery插件
 + containers：存放的是我们基本的页面的组件  比如说头部 左侧 中间内容区的布局 
-+ test
