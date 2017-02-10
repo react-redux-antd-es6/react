@@ -9,8 +9,8 @@ export default class Footer extends Component {
       loading: false,
     }
   }
-	                                                                                                                                                                                                                                                                    componentDidMount() {
-		                                                                                                                                                                                                                                                                    console.log(111)
+	                                                                                                                                                                                                                                                                                        componentDidMount() {
+		                                                                                                                                                                                                                                                                                        console.log(111)
   fetchJsonp('http://cache.video.iqiyi.com/jp/avlist/202861101/1/?callback=jsonp', {
     jsonpCallback: 'jsonp',
   }).then(function (response) {
