@@ -13,7 +13,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: './vendor.[hash].js',
+    filename: './vendor.js',
   },
   resolve: {
     extensions: ['', '.js', '.json'],
@@ -52,7 +52,7 @@ module.exports = {
        }
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.[hash].js'),
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     /*压缩优化代码开始  可以关掉*/
     // new webpack.optimize.UglifyJsPlugin({minimize: true}),
     /*压缩优化代码结束*/
