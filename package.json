@@ -117,8 +117,7 @@
       "helpMessage": ""
     },
     "ghooks": {
-      "pre-commit": "npm run precommit-msg && npm run lint",
-      "commit-msg": "validate-commit-msg"
+      
     }
   }
 }
