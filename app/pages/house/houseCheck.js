@@ -138,7 +138,7 @@ export default class houseCheckList extends Component {
           return (
             <span>
               <Button type="primary" size="small">
-                <Link to={`/houseDetail/${text.id}`}>查看</Link>
+                <Link to={`/houseDetail/${record.id}`}>查看</Link>
               </Button>
             </span>
           )

@@ -48,7 +48,6 @@
     "less-loader": "~2.2.3",
     "nyc": "~7.0.0",
     "postcss-loader": "~0.9.1",
-    "prepare-commit-msg-dianwoda": "^0.2.1",
     "react-addons-test-utils": "~15.2.1",
     "react-hot-loader": "~1.3.0",
     "redux-ava": "~2.1.0",
@@ -119,7 +118,6 @@
     },
     "ghooks": {
       "pre-commit": "npm run precommit-msg && npm run lint",
-      "prepare-commit-msg": "prepare-commit-msg-dianwoda $2 $3",
       "commit-msg": "validate-commit-msg"
     }
   }
