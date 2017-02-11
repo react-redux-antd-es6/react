@@ -1,3 +1,14 @@
 import Mock from 'mockjs';
 
-console.log('2', Mock);
+export default {
+  mockData1: Mock.mock({
+      status: '400',
+      data: Mock.mock({
+        "array|1-10": [
+          "Hello",
+          "Mock.js",
+          "!"
+        ]
+      })
+  })
+}
