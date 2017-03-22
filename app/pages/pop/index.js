@@ -84,7 +84,7 @@ export default class popCheck extends Component {
   }
 
   render() {
-  	                                                                                                                                                                                                                                                                                        const { getFieldDecorator } = this.props.form;
+  	                    const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
       labelCol: { span: 6 },
       wrapperCol: { span: 14 },
@@ -111,10 +111,10 @@ export default class popCheck extends Component {
   hasFeedback
          >
 	          {getFieldDecorator('email', {
-	                                                                                                                                                                                                                                                                                                    rules: [{
-	                                                                                                                                                                                                                                                                                                      type: 'email', message: 'The input is not valid E-mail!',
+	                                rules: [{
+	                                  type: 'email', message: 'The input is not valid E-mail!',
 	            }, {
-	                                                                                                                                                                                                                                                                                                      required: true, message: 'Please input your E-mail!',
+	                                  required: true, message: 'Please input your E-mail!',
 	            }],
 	          })(
 	            <Input />
@@ -126,10 +126,10 @@ export default class popCheck extends Component {
   hasFeedback
 	        >
 	          {getFieldDecorator('password', {
-	                                                                                                                                                                                                                                                                                                    rules: [{
-	                                                                                                                                                                                                                                                                                                      required: true, message: 'Please input your password!',
+	                                rules: [{
+	                                  required: true, message: 'Please input your password!',
 	            }, {
-	                                                                                                                                                                                                                                                                                                      validator: this.checkConfirm,
+	                                  validator: this.checkConfirm,
 	            }],
 	          })(
 	            <Input type="password" onBlur={this.handlePasswordBlur} />
@@ -141,10 +141,10 @@ export default class popCheck extends Component {
   hasFeedback
 	        >
 	          {getFieldDecorator('confirm', {
-	                                                                                                                                                                                                                                                                                                    rules: [{
-	                                                                                                                                                                                                                                                                                                      required: true, message: 'Please confirm your password!',
+	                                rules: [{
+	                                  required: true, message: 'Please confirm your password!',
 	            }, {
-	                                                                                                                                                                                                                                                                                                      validator: this.checkPassowrd,
+	                                  validator: this.checkPassowrd,
 	            }],
 	          })(
 	            <Input type="password" />
@@ -163,7 +163,7 @@ export default class popCheck extends Component {
   hasFeedback
 	        >
 	          {getFieldDecorator('nickname', {
-	                                                                                                                                                                                                                                                                                                    rules: [{ required: true, message: 'Please input your nickname!' }],
+	                                rules: [{ required: true, message: 'Please input your nickname!' }],
 	          })(
 	            <Input />
 	          )}
@@ -173,8 +173,8 @@ export default class popCheck extends Component {
   label="Habitual Residence"
 	        >
 	          {getFieldDecorator('residence', {
-	                                                                                                                                                                                                                                                                                                    initialValue: ['zhejiang', 'hangzhou', 'xihu'],
-	                                                                                                                                                                                                                                                                                                    rules: [{ type: 'array', required: true, message: 'Please select your habitual residence!' }],
+	                                initialValue: ['zhejiang', 'hangzhou', 'xihu'],
+	                                rules: [{ type: 'array', required: true, message: 'Please select your habitual residence!' }],
 	          })(
 	            <Cascader options={residences} />
 	          )}
@@ -184,7 +184,7 @@ export default class popCheck extends Component {
   label="Phone Number"
 	        >
 	          {getFieldDecorator('phone', {
-	                                                                                                                                                                                                                                                                                                    rules: [{ required: true, message: 'Please input your phone number!' }],
+	                                rules: [{ required: true, message: 'Please input your phone number!' }],
 	          })(
 	            <Input addonBefore={prefixSelector} />
 	          )}
@@ -197,7 +197,7 @@ export default class popCheck extends Component {
 	          <Row gutter={8}>
 	            <Col span={12}>
 	              {getFieldDecorator('captcha', {
-	                                                                                                                                                                                                                                                                                                        rules: [{ required: true, message: 'Please input the captcha you got!' }],
+	                                    rules: [{ required: true, message: 'Please input the captcha you got!' }],
 	              })(
 	                <Input size="large" />
 	              )}
@@ -209,7 +209,7 @@ export default class popCheck extends Component {
 	        </FormItem>
 	        <FormItem {...tailFormItemLayout} style={{ marginBottom: 8 }}>
 	          {getFieldDecorator('agreement', {
-	                                                                                                                                                                                                                                                                                                    valuePropName: 'checked',
+	                                valuePropName: 'checked',
 	          })(
 	            <Checkbox>I had read the <a>agreement</a></Checkbox>
 	          )}

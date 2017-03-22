@@ -39,7 +39,6 @@
     "eslint-plugin-jsx-a11y": "~2.1.0",
     "eslint-plugin-react": "~6.1.1",
     "extract-text-webpack-plugin": "~1.0.1",
-    "fetch-jsonp": "^1.0.6",
     "file-loader": "~0.9.0",
     "ghooks": "^1.3.2",
     "http-proxy": "~1.14.0",
@@ -49,6 +48,7 @@
     "less-loader": "~2.2.3",
     "nyc": "~7.0.0",
     "postcss-loader": "~0.9.1",
+    "prepare-commit-msg-dianwoda": "^0.2.1",
     "react-addons-test-utils": "~15.2.1",
     "react-hot-loader": "~1.3.0",
     "redux-ava": "~2.1.0",
@@ -71,7 +71,6 @@
     "html-webpack-plugin": "~2.22.0",
     "immutable": "~3.8.1",
     "isomorphic-fetch": "~2.2.1",
-    "mockjs": "^1.0.1-beta3",
     "moment": "~2.14.1",
     "open-browser-webpack-plugin": "~0.0.2",
     "rc-queue-anim": "^0.12.6",
@@ -118,6 +117,7 @@
       "subjectPatternErrorMsg": "subject does not match subject pattern!",
       "helpMessage": ""
     },
-    "ghooks": {}
+    "ghooks": {
+    }
   }
 }
