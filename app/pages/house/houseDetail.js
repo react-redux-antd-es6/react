@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link, hashHistory } from 'react-router'
 import { Spin, Tabs } from 'antd'
 // import TagAndButton from 'components/detailContent/tagAndButton'
 import { fetchHouseDetail } from 'actions/house'
@@ -29,6 +30,16 @@ export default class houseDetail extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props.location.query)
+    console.log(this.props)
+    console.log(hashHistory)
+    setTimeout(() => {
+      hashHistory.push({
+        pathname: '/test',
+        query: {foo:'bar'}
+      })
+      // hashHistory.replace('/test')
+    }, 2000)
     // debugger
     const houseId = this.props.houseId || this.props.params.houseId || 1
     if (this.props.params) {
@@ -38,7 +49,7 @@ export default class houseDetail extends Component {
         key: `/houseDetail/${houseId}`,
       }))
     }
-    this.props.dispatch(fetchHouseDetail({ houseId: houseId }))
+    this.props.dispatch(fetchHouseDetail({ houseId: houseId, id:123, key:'dupi' }))
   }
   componentWillReceiveProps(nextProps) {
     /* const houseId = this.props.houseId || this.props.params.houseId
@@ -91,7 +102,7 @@ export default class houseDetail extends Component {
       log: (<Log houseId={houseId} />),
     }
 
-    console.log(this.state.activeSub);
+    // console.log(this.state.activeSub);
     return (
       <Spin spinning={loading}>
         <div className="detail-wrapper">

@@ -114,43 +114,39 @@ export default class Login extends Component {
           <div className="btmLogin">
             <div className="sy_bottom">
               <h1 id="PerformName">login</h1>
-              <Row className="ul-wrap">
-                <Col span={12} offset={6}>
-                  <Spin spinning={this.state.loading}>
-                    <Form inline onSubmit={this.handleSubmit}>
-                      <FormItem hasFeedback>
-                        {getFieldDecorator('usercode', {
-                          rules: [
-                            { required: true, min: 2, message: '用户名至少为2个字符' },
-                            { validator: this.checkName },
-                          ],
-                        })(
-                          <Input
-                            addonBefore={<Icon type="user" />}
-                            placeholder="请输入用户名"
-                            type="text"
-                          />
-                        )}
-                      </FormItem>
-                      <FormItem hasFeedback>
-                        {getFieldDecorator('userpwd', {
-                          rules: [{ required: true, message: '请输入密码' }],
-                        })(
-                          <Input
-                            addonBefore={<Icon type="lock" />}
-                            placeholder="请输入密码"
-                            type="password"
-                          />
-                        )}
+              <Spin spinning={this.state.loading}>
+                <Form inline onSubmit={this.handleSubmit}>
+                  <FormItem hasFeedback>
+                    {getFieldDecorator('usercode', {
+                      rules: [
+                        { required: true, min: 2, message: '用户名至少为2个字符' },
+                        { validator: this.checkName },
+                      ],
+                    })(
+                      <Input
+                        addonBefore={<Icon type="user" />}
+                        placeholder="请输入用户名"
+                        type="text"
+                      />
+                    )}
+                  </FormItem>
+                  <FormItem hasFeedback>
+                    {getFieldDecorator('userpwd', {
+                      rules: [{ required: true, message: '请输入密码' }],
+                    })(
+                      <Input
+                        addonBefore={<Icon type="lock" />}
+                        placeholder="请输入密码"
+                        type="password"
+                      />
+                    )}
 
-                      </FormItem>
-                      <FormItem>
-                        <Button type="primary" htmlType="submit">登录</Button>
-                      </FormItem>
-                    </Form>
-                  </Spin>
-                </Col>
-              </Row>
+                  </FormItem>
+                  <FormItem>
+                    <Button type="primary" htmlType="submit">登录</Button>
+                  </FormItem>
+                </Form>
+              </Spin>
             </div>
           </div>
         <div id="companyName" className="companyName"></div>
