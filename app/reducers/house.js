@@ -13,11 +13,9 @@ const listResultState = {
 
 export const houseCheckSearchResult = handleActions({
   'request houseCheck list'(state, action) {
-    console.log(1)
     return { ...state, loading: false }
   },
   'receive houseCheck list'(state, action) {
-    console.log(2)
     // eslint-disable-next-line no-unused-vars
     const { req, res } = action.payload
     if (hasResponseError(res)) {
