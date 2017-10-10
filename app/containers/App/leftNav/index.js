@@ -20,9 +20,9 @@ export default class LeftNav extends Component {
     this.state = {
       current: pathname,
       openKeys: ['sub1'],
-      isLeftNavMini: true,
+      isLeftNavMini: false,
     }
-    
+
     this._handleClick = this._handleClick.bind(this)
     this._handleToggle = this._handleToggle.bind(this)
     this.navMini = this.navMini.bind(this)
@@ -35,7 +35,8 @@ export default class LeftNav extends Component {
       this.setState({
         isLeftNavMini: false,
       })
-    } else {
+    }
+    if (sessionStorage.getItem('isLeftNavMini') == 'true') {
       this.setState({
         isLeftNavMini: true,
       })
@@ -47,7 +48,7 @@ export default class LeftNav extends Component {
     // console.log('click ', e)
     this.setState({
       current: e.key,
-      openKeys: e.keyPath.slice(1),
+      // openKeys: e.keyPath.slice(1),
     }, () => {
       actions.push(e.key)
       this.props.dispatch(updateTabList({ title: e.item.props.name, content: '', key: e.key }))
@@ -88,7 +89,7 @@ export default class LeftNav extends Component {
   renderLeftNav(options) {
     const self = this
     return options.map((item, index) => {
-      if(!item.children){
+      if (!item.children) {
         return (
           // <SubMenu key={index} title={item.name}>
             <Menu.Item key={item.url ? item.url : item.id} name={item.name}>
@@ -105,15 +106,15 @@ export default class LeftNav extends Component {
               <span className="menu-name">{item.name}</span>
             </span>}>
             {
-              item.url ? 
+              item.url ?
                 <Menu.Item key={item.url} name={item.name}>
                   <Icon type={item.icon} title={item.name} />
                   <span className="menu-name">{item.name}</span>
                 </Menu.Item> : null
             }
-            
+
             {
-              item.children && item.children.length > 0 ? self.renderLeftNav(item.children): null
+              item.children && item.children.length > 0 ? self.renderLeftNav(item.children) : null
             }
           </SubMenu>
         )
@@ -125,7 +126,10 @@ export default class LeftNav extends Component {
     // const { loading } = this.props.navResult
     // const navs = this.props.config.NAVIGATION || []
     // console.log('this.props.location', this.props.location)
-    const selectedKeys = [`${this.props.location.pathname.split('$')[0]}$`.replace('/', '')]
+    // const selectedKeys = [`${this.props.location.pathname.split('$')[0]}$`.replace('/', '')]
+
+    const selectedKeys = [this.props.location.pathname.replace('/', '')]
+    // console.log(this.state.openKeys)
     return (
       <div className={this.state.isLeftNavMini ? 'LeftNavMini' : ''}>
         <nav id="mainnav-container" className="mainnav-container">

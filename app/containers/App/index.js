@@ -10,7 +10,7 @@ import LeftNav from './leftNav'
 import RightAside from './rightAside'
 import TabList from './tabList'
 import Extra from './extra'
-import 'antd/dist/antd.less'
+
 import '../../style/base.less'
 
 @connect(
@@ -42,7 +42,8 @@ export default class App extends Component {
       this.setState({
         isLeftNavMini: false,
       })
-    } else {
+    }
+    if (sessionStorage.getItem('isLeftNavMini') == 'true') {
       this.setState({
         isLeftNavMini: true,
       })

@@ -41,7 +41,7 @@ export default class Login extends Component {
         this.state.loading = true
         // this.setState({loading: true})
         Object.keys(values).map((key) => values[key] = (values[key] && values[key].trim()))
-        /*this.props.dispatch(fetchLogin(values, (res) => {
+        /* this.props.dispatch(fetchLogin(values, (res) => {
           if (res.status == 1) {
             const query = this.props.form.getFieldsValue()
             global.$GLOBALCONFIG.staff = res.data.user
@@ -77,7 +77,7 @@ export default class Login extends Component {
   }
 
   checkName(rule, value, callback) {
-    const { validateFields } = this.props.form
+    // const { validateFields } = this.props.form
     if (value) {
       // validateFields([''])
     }
@@ -85,7 +85,7 @@ export default class Login extends Component {
   }
 
   checkPass(rule, value, callback) {
-    const { validateFields } = this.props.form
+    // const { validateFields } = this.props.form
     if (value) {
       // validateFields([''])
     }
@@ -108,7 +108,7 @@ export default class Login extends Component {
             <Row className="ul-wrap">
               <Col span={24}>
                 <Spin spinning={this.state.loading}>
-                  <Form layout="vertical" onSubmit={this.handleSubmit}>
+                  <Form onSubmit={this.handleSubmit}>
                     <FormItem hasFeedback>
                       {getFieldDecorator('username', {
                         rules: [
@@ -119,7 +119,7 @@ export default class Login extends Component {
                         // validateTrigger: 'onBlur',
                       })(
                         <Input
-                          addonBefore={<Icon type="user" />}
+                          prefix={<Icon type="user" style={{ fontSize: 13 }} />}
                           placeholder="请输入用户名"
                           type="text"
                         />
@@ -134,7 +134,7 @@ export default class Login extends Component {
                         // validateTrigger: 'onBlur',
                       })(
                         <Input
-                          addonBefore={<Icon type="lock" />}
+                          prefix={<Icon type="lock" style={{ fontSize: 13 }} />}
                           placeholder="请输入密码"
                           type="password"
                         />
