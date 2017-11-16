@@ -13,7 +13,7 @@ so，就是这个啦
 
 ## 技术栈
 
-react + redux + react-router + webpack + ES6/7 + fetch + less + flex
+react + redux + react-router + webpack + ES6/7 + fetch + less
 
 
 
@@ -36,6 +36,10 @@ npm run build (打包)
 
 node mockserver.js (前端本地用node模拟接口进程)
 
+想要开启聊天室功能 需要进入到server文件目录 然后开启socket服务
+
+node imSercer.js
+
 ```
 
 
@@ -52,7 +56,7 @@ npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 如果这个方法还不行的话，可以到我的百度网盘上面去下载我已经压缩好的npm依赖包，地址是
 ``` 
-http://pan.baidu.com/s/1pLdPWgj
+https://pan.baidu.com/s/1o8mOrV0
 
 ```
 把下载到本地的node_modules.rar文件直接解压到跟app同级的当前文件夹，记住是当前文件夹的，然后不用npm install就可以直接npm start跑起来项目了。
@@ -72,6 +76,9 @@ http://pan.baidu.com/s/1pLdPWgj
 - [√] 页面高度flex自适应
 - [√] fetch数据跨域的设置
 - [√] 实时的webpack包大小预览
+- [√] draftjs编辑器
+- [√] kindeditor编辑器
+- [√] 聊天室
 
 
 
@@ -87,31 +94,34 @@ http://pan.baidu.com/s/1pLdPWgj
 ## 部分截图
 
 
-### 登录页
-
-<img src="https://github.com/duxianwei520/react/blob/master/screenshots/login.png" width="704" height="561"/> 
-
-
 ### 欢迎页
 
-<img src="https://github.com/duxianwei520/react/blob/master/screenshots/welcome.png" width="1010" height="566"/>
-
-
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/welcome.gif" width="976" height="586"/>
 
 ### 列表页
 
-<img src="https://github.com/duxianwei520/react/blob/master/screenshots/list.png" width="1002" height="582"/>
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/list.gif" width="960" height="581"/>
 
-### 请求接口
+### 图表
 
-<img src="https://github.com/duxianwei520/react/blob/master/screenshots/requestData.png" width="885" height="590"/>
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/echart.gif" width="976" height="586"/>
+
+### Facebook官方富文本编辑器draft.js
+
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/draft.gif" width="976" height="586"/>
+
+### 富文本编辑器kindeditor
+
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/kindeditor.gif" width="976" height="586"/>
+
+### 聊天室
+
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/chat.gif" width="1331" height=""/>
 
 
-### 接口按返回
+### 构建完成的包的分析截图
 
-<img src="https://github.com/duxianwei520/react/blob/master/screenshots/receiveData.png" width="997" height="586"/>
-
-
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/analysis.png" width="1101" height="555"/>
 
 
 ## 项目结构
@@ -223,3 +233,8 @@ http://pan.baidu.com/s/1pLdPWgj
 ## License
 
 [GPL](https://github.com/duxianwei520/react/blob/master/COPYING)
+
+
+## 关于交流
+想加入群聊的话，
+可以加入我创建的reactQQ群：598372207，也可以加我QQ：631827052

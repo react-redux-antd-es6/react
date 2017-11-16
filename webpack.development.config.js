@@ -5,13 +5,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 // const casProxy = require('./proxy');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const PORT = 3010
 
 module.exports = {
   entry: {
-    js: './app/client.js',
+    client: './app/client.js',
+    a: ['immutable'],
     vendor: [
       'react', 'classnames', 'react-router', 'react-dom',
     ],
@@ -46,7 +47,8 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        loader: 'style!css!postcss!less',
+        // loader: 'style!css!postcss!less',
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap=true!postcss-loader?sourceMap=true!less-loader?sourceMap=<true></true>'),
       },
       {
         test: /\.css/,
@@ -87,16 +89,17 @@ module.exports = {
       url: `http://localhost:${PORT}/#/login`,
     }),
     // 分析代码
-    new BundleAnalyzerPlugin({ analyzerPort: 8188 }),
+    // new BundleAnalyzerPlugin({ analyzerPort: 666 }),
   ],
   devtool: 'source-map',
   devServer: {
     contentBase: './app/',
     historyApiFallback: false,
     hot: false,
-    inline: false,
+    // inline: false,
     // proxy: casProxy(),
     host: '0.0.0.0',
     port: PORT,
+    // stats: { colors: true },
   },
 }
