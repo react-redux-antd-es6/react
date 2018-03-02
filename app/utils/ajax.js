@@ -1,10 +1,7 @@
 import fetch from 'isomorphic-fetch'
-import { API_PREFIX, API_SUFFIX } from '../constants'
+import { prefix, suffix } from '../config'
 
-// todo : 连接store
-// const code = global.$GLOBALCONFIG.STAFF.code
-
-function buildParams(obj) {
+/* function buildParams(obj) {
   if (!obj) {
     return ''
   }
@@ -15,9 +12,9 @@ function buildParams(obj) {
   }
   const arg = params.join('&')
   return arg
-}
+} */
 
-// 下面是注释用formdata的方式传输数据
+// formdata的方式传输数据
 /* export function fetchJSON(url, params) {
   params = {
     ...params,
@@ -26,39 +23,39 @@ function buildParams(obj) {
       ...params.headers,
     },
   }
-  url = `${API_PREFIX}${url}${API_SUFFIX}`
+  url = `${prefix}${url}${suffix}`
   return fetch(url, params)
-}*/
+} */
 
 export function fetchJSON(url, params, target) {
   const data = {
-    'method': 'POST',
+    method: 'POST',
     'Content-Type': 'application/json',
-    'body': JSON.stringify(params),
+    credentials: 'include',
+    body: JSON.stringify(params),
   }
-
+  let newUrl
   if (target) {
-    url = `${target}${url}${API_SUFFIX}`
+    newUrl = `${target}${url}${suffix}`
   } else {
-    url = `${API_PREFIX}${url}${API_SUFFIX}`
+    newUrl = `${prefix}${url}${suffix}`
   }
-  return fetch(url, data)
+  return fetch(newUrl, data)
 }
 
 
 // eslint-disable-next-line arrow-parens
-export const fetchJSONByPost = (url, target) => query => {
+export const fetchJSONByPost = (url, target) => query =>
   // 下面是注释用formdata的方式传输数据
   /* const params = {
     method: 'POST',
     body: buildParams(query),
   }
-  return fetchJSON(url, params)*/
-  return fetchJSON(url, query, target)
-}
+  return fetchJSON(url, params) */
+  fetchJSON(url, query, target)
 
 
-export const fetchJSONStringByPost = url => query => {
+/* export const fetchJSONStringByPost = url => (query) => {
   const params = {
     method: 'POST',
     body: query,
@@ -68,3 +65,4 @@ export const fetchJSONStringByPost = url => query => {
   }
   return fetchJSON(url, params)
 }
+ */

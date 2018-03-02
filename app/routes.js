@@ -1,84 +1,52 @@
 import React from 'react'
-import {
-  Route,
-  IndexRoute,
-} from 'react-router'
-import App from './containers/App'
+import { Router, Route, IndexRoute } from 'react-router'
+import hashHistory from './history'
+
+import App from './base'
 import Welcome from './pages/welcome'
-// import Login from './containers/App/login'
-
-// import {
-//   houseCheck,
-//   houseManage,
-//   houseDetail,
-//   roomDetail,
-// } from './pages/house'
-
-// import popCheck from './pages/pop/index'
 
 // 表格列表
 const table = (location, cb) => {
-  require.ensure([], require => {
+  require.ensure([], (require) => {
     cb(null, require('./pages/menu/table').default)
   }, 'table')
 }
 
-// 表格列表
-const table1 = (location, cb) => {
-  require.ensure([], require => {
-    cb(null, require('./pages/menu/table1').default)
-  }, 'table1')
-}
-
-// 表格列表
-const table2 = (location, cb) => {
-  require.ensure([], require => {
-    cb(null, require('./pages/menu/table2').default)
-  }, 'table2')
-}
-
-// 表格列表
-const table3 = (location, cb) => {
-  require.ensure([], require => {
-    cb(null, require('./pages/menu/table3').default)
-  }, 'table3')
-}
-
 // 图表
 const echarts = (location, cb) => {
-  require.ensure([], require => {
+  require.ensure([], (require) => {
     cb(null, require('./pages/menu/echarts').default)
   }, 'echarts')
 }
 
 // 登录
 const Login = (location, cb) => {
-  require.ensure([], require => {
-    cb(null, require('./containers/App/login').default)
+  require.ensure([], (require) => {
+    cb(null, require('./pages/login').default)
   }, 'login')
+}
+
+// 注册
+const Register = (location, cb) => {
+  require.ensure([], (require) => {
+    cb(null, require('./pages/register').default)
+  }, 'register')
 }
 
 // 测试
 const chat = (location, cb) => {
-  require.ensure([], require => {
+  require.ensure([], (require) => {
     cb(null, require('./pages/chat').default)
   }, 'chat')
 }
 // 编辑器
 const editor = (location, cb) => {
-  require.ensure([], require => {
+  require.ensure([], (require) => {
     cb(null, require('./pages/menu/editor').default)
   }, 'editor')
 }
 
-// kindEditor
-const kindEditor = (location, cb) => {
-  require.ensure([], require => {
-    cb(null, require('./pages/menu/kindEditor').default)
-  }, 'kindEditor')
-}
-
-/* 进入路由的判断*/
+/* 进入路由的判断 */
 function isLogin(nextState, replaceState) {
   const token = sessionStorage.getItem('token')
   if (!token) {
@@ -87,23 +55,18 @@ function isLogin(nextState, replaceState) {
   }
 }
 
-const routes = (
-  <Route>
+export default () => (
+  <Router history={hashHistory}>
     <Route path="/" component={App} onEnter={isLogin}>
       <IndexRoute component={Welcome} />
       <Route path="/table" getComponent={table} />
-      <Route path="/table1" getComponent={table1} />
-      <Route path="/table2" getComponent={table2} />
-      <Route path="/table3" getComponent={table3} />
       <Route path="/echarts" getComponent={echarts} />
       <Route path="/editor" getComponent={editor} />
-      <Route path="/kindEditor" getComponent={kindEditor} />
-
       <Route path="/chat" getComponent={chat} />
-
     </Route>
-    <Route path="/login" getComponent={Login}></Route>
-  </Route>
-);
+    <Route path="/login" getComponent={Login} />
+    <Route path="/register" getComponent={Register} />
+  </Router>
+)
 
-export default routes
+// export default routes

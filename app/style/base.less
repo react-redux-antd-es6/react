@@ -1,22 +1,10 @@
 @import "./theme.less";
 
-html,
-body {
-  min-width: 290px;
-  -ms-overflow-style: scrollbar;
-  overflow: hidden;
-}
-body {
-  background-color: #e7ebee;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  color: #515151;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased !important;
-}
+html, body { min-width: 290px; -ms-overflow-style: scrollbar; overflow: hidden;}
+body {background-color: #e7ebee; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; color: #515151; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased !important;}
 
-.flex-column{ flex:1; display: flex; flex-direction: column;}
-.flex-row{ flex:1; display: flex; flex-direction: row;}
+.flexcolumn{ flex:1; display: flex; flex-direction: column;}
+.flexrow{ flex:1; display: flex; flex-direction: row;}
 // 动画缓冲效果
 .effect .navbar-content,
 .effect #navbar,
@@ -46,13 +34,14 @@ body {
 .brand-title{ display: block; line-height: @g-header-height;}
 .brand-text { display: block; font-size: 20px; font-weight: 600; letter-spacing: 5px; text-align: left;  padding-left: 15px;}
 .navbar-top-links .dropdown-menu-md{ display: none; }
+.navbar-top-links > .login-info{ display: block; }
 .navbar-top-links > li { float: left; }
 .navbar-top-links > li > a { display: table-cell; padding: 0 12px; vertical-align: middle; height: @g-header-height; color: #ddd; -webkit-transition: all 0.4s; transition: all 0.4s;}
 .navbar-top-links > li > a:focus { background-color: transparent;}
 .navbar-top-links > li > a:hover { background-color: #f2f2f2; color: #2b2b2b; -webkit-transition: all 0.4s; transition: all 0.4s;}
 .navbar-top-links > .open > a,
 .navbar-top-links > .open > a:focus { background-color: #f2f2f2; color: #515151;}
-.navbar-top-links{ float: right;}
+.navbar-top-links{ float: right;margin-bottom: 0px;}
 
 #container { height: auto; position: relative; min-width: 290px; overflow: hidden; -webkit-transition: opacity 0.5s linear 1.5s; transition: opacity 0.5s linear 1.5s;}
 #container.boxed-layout { background-color: #cfd3d6;}
@@ -61,17 +50,18 @@ body {
 .page-header .label { margin-right: 0.5em;}
 #page-content { padding:0;display: flex; flex-direction: column;}
 
-.mainnav-container { position: absolute; width: @g-left-width-base; left: 0; margin-top: @g-header-height; top: 0; bottom: 0; z-index: 4; min-height: 100%; background-color: #42485B ;
-  .ant-menu .ant-menu-submenu-title { background-color: #42485B; height: 36px; line-height: 36px; padding:0; margin:0 0 0 -12px; color: #fff;
+#mainnav-container { position: absolute; width: @g-left-width-base; left: 0; margin-top: @g-header-height; top: 0; bottom: 0; z-index: 4; min-height: 100%; background-color: #42485B ;
+  .ant-menu .ant-menu-submenu-title { background-color: #42485B; height: 36px; line-height: 36px; padding:0; margin:0; color: #fff;
     &:after{ display: none;}
     .anticon{ font-size: 10px; width: 10px; height: 10px; margin:-4px 16px 0 0; transition: transform .3s ease;}
   }
+  .ant-menu-submenu-arrow{ right: 6px;}
   .ant-menu-sub{ 
     .anticon{ font-size: @font-size-lg; margin:0 @space-big 0 0; color: #fff;}
   }
   .ant-menu-submenu-open.ant-menu-submenu-inline .ant-menu-submenu-title .anticon{ transform: rotate(180deg) scale(1); }
   .ant-menu-inline.ant-menu-sub { background-color: #333745; }
-  .ant-menu-submenu .ant-menu-sub .ant-menu-item{margin:0 0 0 -36px; height: 36px; height: 36px;}
+  .ant-menu-submenu .ant-menu-sub .ant-menu-item{margin:0px; height: 36px; height: 36px;}
 }
 .nav-dropmenu{ border: 1px solid #ccc;
   .ant-dropdown-menu-item{ width: 280px;
@@ -99,7 +89,9 @@ body {
 }
 
 
-.ant-tabs-bar{ margin-bottom: 0;}
+.ant-tabs{ height: 40px;
+  .ant-tabs-bar{ margin-bottom: 0;}
+}
 // 滚动条
 ::-webkit-scrollbar{ width: 14px; height: 14px;}
 ::-webkit-scrollbar-track,
@@ -148,5 +140,5 @@ body {
 .page .ant-table-scroll,
 .page .ant-table-body
 {
-  .flex-column;
+  .flexcolumn;
 }

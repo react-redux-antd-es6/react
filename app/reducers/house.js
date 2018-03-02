@@ -18,10 +18,10 @@ export const houseCheckSearchResult = handleActions({
   'receive houseCheck list'(state, action) {
     // eslint-disable-next-line no-unused-vars
     const { req, res } = action.payload
-    if (hasResponseError(res)) {
-      message.error(res.msg)
-      return { ...state, loading: false }
-    }
+    // if (hasResponseError(res)) {
+    //   message.error(res.msg)
+    //   return { ...state, loading: false }
+    // }
     return { ...res.data, loading: false }
   },
 }, listResultState)
@@ -54,10 +54,10 @@ export const houseDetailResult = handleActions({
   },
   'receive house detail'(state, action) {
     const { res } = action.payload
-    if (hasResponseError(res)) {
-      message.error(res.msg)
-      return { ...state, loading: false }
-    }
+    // if (hasResponseError(res)) {
+    //   message.error(res.msg)
+    //   return { ...state, loading: false }
+    // }
     return { ...res.data, loading: false }
   },
 }, detailResultState)

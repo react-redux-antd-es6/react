@@ -1,27 +1,20 @@
-/*
- * @Author: dupi
- * @Date: 2017-06-28 17:16:12
- * @Last Modified by: duxianwei
- * @Last Modified time: 2017-10-18 18:22:00
- */
+
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Editor, EditorState, RichUtils } from 'draft-js'
 import 'draft-js/dist/Draft.css'
-import 'style/RichEditor.css'
+import 'style/RichEditor.less'
 
-@connect(
-  (state, props) => ({
-    config: state.config,
-  })
-)
+@connect((state, props) => ({
+  config: state.config,
+}))
 export default class app extends Component {
   constructor(props) {
     super(props);
     this.state = { editorState: EditorState.createEmpty() };
 
     this.focus = () => this.refs.editor.focus();
-    this.onChange = (editorState) => this.setState({ editorState });
+    this.onChange = editorState => this.setState({ editorState });
 
     this.handleKeyCommand = this._handleKeyCommand.bind(this);
     this.onTab = this._onTab.bind(this);
@@ -44,21 +37,17 @@ export default class app extends Component {
   }
 
   _toggleBlockType(blockType) {
-    this.onChange(
-      RichUtils.toggleBlockType(
-        this.state.editorState,
-        blockType
-      )
-    );
+    this.onChange(RichUtils.toggleBlockType(
+      this.state.editorState,
+      blockType,
+    ));
   }
 
   _toggleInlineStyle(inlineStyle) {
-    this.onChange(
-      RichUtils.toggleInlineStyle(
-        this.state.editorState,
-        inlineStyle
-      )
-    );
+    this.onChange(RichUtils.toggleInlineStyle(
+      this.state.editorState,
+      inlineStyle,
+    ));
   }
 
   render() {
@@ -165,15 +154,14 @@ const BlockStyleControls = (props) => {
 
   return (
     <div className="RichEditor-controls">
-      {BLOCK_TYPES.map((type) =>
-        <StyleButton
+      {BLOCK_TYPES.map(type =>
+        (<StyleButton
           key={type.label}
           active={type.style === blockType}
           label={type.label}
           onToggle={props.onToggle}
           style={type.style}
-        />
-      )}
+        />))}
     </div>
   );
 };
@@ -190,14 +178,13 @@ const InlineStyleControls = (props) => {
   return (
     <div className="RichEditor-controls">
       {INLINE_STYLES.map(type =>
-        <StyleButton
+        (<StyleButton
           key={type.label}
           active={currentStyle.has(type.style)}
           label={type.label}
           onToggle={props.onToggle}
           style={type.style}
-        />
-      )}
+        />))}
     </div>
   );
 };

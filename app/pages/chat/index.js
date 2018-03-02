@@ -1,9 +1,3 @@
-/*
- * @Author: dupi
- * @Date: 2017-06-29 15:34:19
- * @Last Modified by: duxianwei
- * @Last Modified time: 2017-11-14 11:17:31
- */
 
 import React, { Component } from 'react'
 import ReactDom from 'react-dom'

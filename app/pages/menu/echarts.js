@@ -1,20 +1,12 @@
-/*
- * @Author: dupi
- * @Date: 2017-06-28 17:16:12
- * @Last Modified by: duxianwei
- * @Last Modified time: 2017-09-26 18:04:37
- */
+
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import echarts from 'echarts'
 
-
-@connect(
-  (state, props) => ({
-    config: state.config,
-  })
-)
+@connect((state, props) => ({
+  config: state.config,
+}))
 export default class app extends Component {
   constructor(props) {
     super(props)
@@ -33,7 +25,7 @@ export default class app extends Component {
   }
 
   loadChart() {
-    console.log(this.chart)
+    // console.log(this.chart)
     this.chartObj = echarts.init(this.chart)
     const option = {
       tooltip: {
@@ -70,11 +62,11 @@ export default class app extends Component {
             },
           },
           data: [
-                  { value: 335, name: '直接访问' },
-                  { value: 310, name: '邮件营销' },
-                  { value: 234, name: '联盟广告' },
-                  { value: 135, name: '视频广告' },
-                  { value: 1548, name: '搜索引擎' },
+            { value: 335, name: '直接访问' },
+            { value: 310, name: '邮件营销' },
+            { value: 234, name: '联盟广告' },
+            { value: 135, name: '视频广告' },
+            { value: 1548, name: '搜索引擎' },
           ],
         },
       ],
@@ -85,7 +77,7 @@ export default class app extends Component {
   render() {
     return (
       <div className="page">23423
-        <div className="page" ref={(c) => this.chart = c} />
+        <div className="page" ref={c => this.chart = c} />
       </div>
     )
   }
