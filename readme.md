@@ -1,6 +1,5 @@
 # 提示
 
-<<<<<<< HEAD
 为什么选择react而不是vue也不是angular？
 
 ng1.x我用过几个月，觉得整个框架的设计风格更加接近后端Java等开发人员的思想，
@@ -8,9 +7,6 @@ ng1.x我用过几个月，觉得整个框架的设计风格更加接近后端Jav
 vue的1.x版本我也来做过一个小的项目，对比angular1.x，就是轻量，简洁，易上手；2.x风格更加偏向react，中文api文档非常友好，目前发展趋势也有跟react分庭抗礼的趋势，个人挺看好的，不过weex相对react-native来说还是太新了，所以保持观望
 
 so，就是react啦
-=======
-当前的项目已经全部迁移到新的地址https://github.com/duxianwei520/react  希望小伙伴们一起来维护
->>>>>>> 368a859f8bfa5b0ec10388305af3360ebe93a921
 
 
 ## 技术栈
@@ -246,9 +242,3 @@ npm install -g cnpm --registry=https://registry.npm.taobao.org
 可以加入我创建的reactQQ群：598372207~
 
 
-<<<<<<< HEAD
-=======
-## 关于交流
-想加入群聊的话，
-可以加入我创建的reactQQ群：598372207
->>>>>>> 368a859f8bfa5b0ec10388305af3360ebe93a921
