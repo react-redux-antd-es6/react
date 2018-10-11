@@ -1,7 +1,7 @@
 {
-  "name": "duxiaodu",
-  "version": "0.0.2",
-  "description": "duxiaodu",
+  "name": "react",
+  "version": "0.0.3",
+  "description": "a react develop stack for pc management system",
   "repository": {
     "type": "git",
     "url": "https://github.com/duxianwei520/react"
@@ -9,15 +9,19 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --config ./scripts/webpack.dev.config.js",
+    "testing": "webpack --config ./scripts/webpack.testing.config.js",
     "build": "webpack --config ./scripts/webpack.prod.config.js",
     "lint": "eslint ./ --cache --fix --ignore-pattern .gitignore",
-    "mock": "supervisor -i node_modules mock/http.js",
+    "mock": "supervisor -w mock ./app/mocks/http.js",
     "chat": "node ./scripts/chatServer.js"
   },
-  "author": "duxiaodu",
+  "author": "duxianwei",
   "contributors": [
     {
       "name": "HanQ"
+    },
+    {
+      "name": "Huxiaoyu"
     }
   ],
   "devDependencies": {
@@ -30,7 +34,9 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.2.3",
+    "cross-env": "^5.1.4",
     "css-loader": "~0.28.9",
     "eslint": "~4.15.0",
     "eslint-config-airbnb": "~16.1.0",
@@ -41,6 +47,7 @@
     "extract-text-webpack-plugin": "~3.0.2",
     "file-loader": "~1.1.6",
     "ghooks": "^2.0.2",
+    "happypack": "^5.0.0",
     "html-webpack-plugin": "~2.30.1",
     "http-proxy": "~1.16.2",
     "less": "~2.7.1",
@@ -57,13 +64,16 @@
     "url-loader": "~0.6.2",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "~2.11.0",
-    "webpack-merge": "^4.1.1"
+    "webpack-merge": "^4.1.1",
+    "webpack-parallel-uglify-plugin": "^1.1.0"
   },
   "dependencies": {
     "antd": "^3.1.3",
+    "axios": "^0.18.0",
     "babel-polyfill": "~6.26.0",
     "draft-js": "^0.10.3",
-    "echarts": "4.0.2",
+    "echarts": "^4.0.2",
+    "esri-loader": "0.3.1",
     "immutable": "~3.8.1",
     "isomorphic-fetch": "~2.2.1",
     "moment": "~2.20.1",

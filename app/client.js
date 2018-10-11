@@ -2,11 +2,11 @@ import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import './config'
-import Routes from './routes'
-import configure from './store/configureStore'
+import '@config'
+import Routes from '@configs/router.config'
+import configure from '@middleware/configureStore'
 
-const store = configure({ config: global.gconfig })
+const store = configure({ })
 
 ReactDOM.render(
   <Provider store={store}>

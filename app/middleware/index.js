@@ -1,13 +1,13 @@
 
 import { routerMiddleware } from 'react-router-redux'
 import logger from './logger'
-import router from './router'
-import history from '../history'
+import history from './history'
+// import router from './router'
 
 const reduxRouterMiddleware = routerMiddleware(history)
 
 export {
   reduxRouterMiddleware,
   logger,
-  router,
+  // router,
 }

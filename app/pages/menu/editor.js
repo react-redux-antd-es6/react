@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Editor, EditorState, RichUtils } from 'draft-js'
 import 'draft-js/dist/Draft.css'
-import 'style/RichEditor.less'
+import '@styles/RichEditor.less'
 
 @connect((state, props) => ({
   config: state.config,
@@ -103,8 +103,8 @@ const styleMap = {
 
 function getBlockStyle(block) {
   switch (block.getType()) {
-  case 'blockquote': return 'RichEditor-blockquote';
-  default: return null;
+    case 'blockquote': return 'RichEditor-blockquote';
+    default: return null;
   }
 }
 

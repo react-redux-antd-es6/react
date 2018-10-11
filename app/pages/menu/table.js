@@ -16,9 +16,9 @@ const FormItem = Form.Item
 @Form.create({})
 
 @connect((state, props) => ({
-    config: state.config,
-    houseCheckSearchResult: state.houseCheckSearchResult,
-  }),)
+  config: state.config,
+  houseCheckSearchResult: state.houseCheckSearchResult,
+}))
 export default class app extends Component {
   constructor(props) {
     super(props)
@@ -119,7 +119,7 @@ export default class app extends Component {
                   rules: [{
                     required: false,
                   }],
-                })(<Input placeholder="请输入关键字" size="default" style={{ width: '200px' }} />,)
+                })(<Input placeholder="请输入关键字" size="default" style={{ width: '200px' }} />)
               }
             </FormItem>
             <Button type="primary" onClick={this._handleSubmit}>确定</Button>

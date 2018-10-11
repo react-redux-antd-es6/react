@@ -76,7 +76,7 @@ export default class app extends Component {
 
   render() {
     return (
-      <div className="page">23423
+      <div className="page">
         <div className="page" ref={c => this.chart = c} />
       </div>
     )
