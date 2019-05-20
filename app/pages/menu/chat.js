@@ -109,7 +109,7 @@ export default class popCheck extends Component {
       // console.log(nickName, users, type)
       if (users.length) {
         const arr = []
-        users.map((item, index) => {
+        users.forEach((item, index) => {
           arr.push({ name: item, id: index })
         })
         that.setState({
