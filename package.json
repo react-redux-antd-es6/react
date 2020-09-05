@@ -49,7 +49,7 @@
     "ghooks": "^2.0.2",
     "happypack": "^5.0.0",
     "html-webpack-plugin": "~2.30.1",
-    "http-proxy": "~1.16.2",
+    "http-proxy": "~1.18.1",
     "less": "~2.7.1",
     "less-loader": "~4.0.5",
     "mockjs": "^1.0.1-beta3",
