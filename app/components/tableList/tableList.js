@@ -8,6 +8,7 @@ import { Table, Pagination } from 'antd'
 export default class TableList extends Component {
   componentDidMount() {
     this.tableWidthAdaptive()
+   console.log("Data Successfully retrieved!")
   }
 
   componentWillUnmount() {
