@@ -223,7 +223,7 @@ https://github.com/duxianwei520/node
 >  如果npm install太慢导致有些npm依赖包下载失败 你可以看控制台的报错信息，再手动npm install 具体的开发包，推荐使用淘宝的注册源，直接运行，
 
 ```
-npm install -g cnpm --registry=https://registry.npm.taobao.org 
+npm install -g cnpm --registry=https://registry.npmmirror.com 
 
 ```
 
