@@ -39,6 +39,7 @@ export default class TabList extends Component {
 
     if (targetKey === tabList.activeKey) {
       tabList.list.map((tab, index) => {
+        // eslint-disable-next-line
         tab.key === targetKey ? delIndex = index : null;
       });
       // eslint-disable-next-line no-nested-ternary

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import TweenOne from 'rc-tween-one'
 import ticker from 'rc-tween-one/lib/ticker'
@@ -38,7 +38,8 @@ export default class app extends Component {
   }
 
   componentDidMount() {
-    this.dom = ReactDOM.findDOMNode(this)
+    // this.dom = ReactDOM.findDOMNode(this)
+    this.dom = this.componentDom
     this.createPointData();
   }
 
@@ -68,27 +69,27 @@ export default class app extends Component {
     const number = this.props.pixSize;
     for (let i = 0; i < w; i += number) {
       for (let j = 0; j < h; j += number) {
-        if (data[((i + j * w) * 4) + 3] > 150) {
+        if (data[((i + (j * w)) * 4) + 3] > 150) {
           this.pointArray.push({ x: i, y: j });
         }
       }
     }
     const children = [];
     this.pointArray.forEach((item, i) => {
-      const r = Math.random() * this.props.pointSizeMin + this.props.pointSizeMin;
-      const b = Math.random() * 0.4 + 0.1;
-      children.push(<TweenOne className="point-wrapper" key={i} style={{ left: item.x, top: item.y }}>
+      const r = (Math.random() * this.props.pointSizeMin) + this.props.pointSizeMin;
+      const b = (Math.random() * 0.4) + 0.1;
+      children.push(<TweenOne className="point-wrapper" key={item.x * r} style={{ left: item.x, top: item.y }}>
         <TweenOne
           className="point"
           style={{
             width: r,
             height: r,
             opacity: b,
-            backgroundColor: `rgb(${Math.round(Math.random() * 95 + 160)},255,255)`,
+            backgroundColor: `rgb(${Math.round((Math.random() * 95) + 160)},255,255)`,
           }}
           animation={{
-            y: (Math.random() * 2 - 1) * 10 || 5,
-            x: (Math.random() * 2 - 1) * 5 || 2.5,
+            y: ((Math.random() * 2) - 1) * 10 || 5,
+            x: ((Math.random() * 2) - 1) * 5 || 2.5,
             delay: Math.random() * 1000,
             repeat: -1,
             duration: 3000,
@@ -116,7 +117,7 @@ export default class app extends Component {
     const img = new Image();
     img.onload = () => {
       ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, w, h);
-      const data = ctx.getImageData(0, 0, w, h).data;
+      const { data } = ctx.getImageData(0, 0, w, h);
       this.setDataToDom(data, w, h);
       this.dom.removeChild(canvas);
     };
@@ -148,11 +149,11 @@ export default class app extends Component {
     const children = this.state.children.map(item =>
       React.cloneElement(item, {
         animation: {
-          x: Math.random() * rect.width - sideLeft - item.props.style.left,
-          y: Math.random() * rect.height - sideTop - item.props.style.top,
-          opacity: Math.random() * 0.4 + 0.1,
-          scale: Math.random() * 2.4 + 0.1,
-          duration: Math.random() * 500 + 500,
+          x: (Math.random() * rect.width) - sideLeft - item.props.style.left,
+          y: (Math.random() * rect.height) - sideTop - item.props.style.top,
+          opacity: (Math.random() * 0.4) + 0.1,
+          scale: (Math.random() * 2.4) + 0.1,
+          duration: (Math.random() * 500) + 500,
           ease: 'easeInOutQuint',
         },
       }));
@@ -163,14 +164,16 @@ export default class app extends Component {
   };
 
   updateTweenData = () => {
-    this.dom = ReactDOM.findDOMNode(this);
-    this.sideBox = ReactDOM.findDOMNode(this.sideBoxComp);
+    // this.dom = ReactDOM.findDOMNode(this);
+    this.dom = this.componentDom
+    // this.sideBox = ReactDOM.findDOMNode(this.sideBoxComp);
+    this.sideBox = document.querySelector('.right-side');
     ((this.gather && this.disperseData) || this.gatherData)();
     this.gather = !this.gather;
   };
 
   render() {
-    return (<div className="logo-gather-demo-wrapper">
+    return (<div className="logo-gather-demo-wrapper" ref={c => this.componentDom = c}>
       <canvas id="canvas" />
       <TweenOne
         animation={this.state.boxAnim}

@@ -3,7 +3,7 @@ module.exports = {
   data: {
     pageSize: 10,
     pageNo: 1,
-    totalCount: 8,
+    totalCount: 10,
     list: [
       {
         id: 10240,
@@ -31,7 +31,7 @@ module.exports = {
         idcardNo: '412722196302151222',
         deptCode: '370200000000',
         phoneNo: '15236985623',
-        status: 0,
+        status: 1,
         roles: [
           {
             id: 1,
@@ -50,7 +50,7 @@ module.exports = {
         deptCode: '370200000000',
         phoneNo: '15821456854',
         type: 0,
-        status: 0,
+        status: 1,
         roles: [
           {
             id: 1,

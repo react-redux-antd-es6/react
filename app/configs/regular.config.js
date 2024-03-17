@@ -11,11 +11,11 @@ export const regExpConfig = {
   isNumAlpha: /^[0-9A-Za-z]*$/, // 字母或数字
   isAlpha: /^[a-zA-Z]*$/, // 是否字母
   isNumAlphaCn: /^[0-9a-zA-Z\u4E00-\uFA29]*$/, // 是否数字或字母或汉字
-  isPostCode: /^[\d\-]*$/i, // 是否邮编
+  isPostCode: /^[\d-]*$/i, // 是否邮编
   isNumAlphaUline: /^[0-9a-zA-Z_]*$/, // 是否数字、字母或下划线
   isNumAndThanZero: /^([1-9]\d*(\.\d+)?|0)$/, // 是否为整数且大于0/^[1-9]\d*(\.\d+)?$/
   isNormalEncode: /^(\w||[\u4e00-\u9fa5]){0,}$/, // 是否为非特殊字符（包括数字字母下划线中文）
-  isTableName: /^[a-zA-Z][A-Za-z0-9\#\$\_\-]{0,29}$/, // 表名
+  isTableName: /^[a-zA-Z][A-Za-z0-9#$_-]{0,29}$/, // 表名
   isInt: /^-?\d+$/, // 整数
   isTableOtherName: /^[\u4e00-\u9fa5]{0,20}$/, // 别名
   // isText_30: /^(\W|\w{1,2}){0,15}$/, // 正则

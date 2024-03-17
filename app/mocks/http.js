@@ -10,6 +10,7 @@ http.createServer((req, res) => {
     'Access-Control-Allow-Methods': '*',
     'Access-Control-Allow-Headers': '*',
     'Access-Control-Allow-Credentials': true,
+    'Cache-Control': 'no-cache,no-store', // clear cache
   })
   if (req.method === 'OPTIONS') {
     res.end(null)
@@ -28,10 +29,9 @@ http.createServer((req, res) => {
         : originData
       // const data = originData
       setTimeout(() => {
-        console.log(data)
         res.end(JSON.stringify(data))
-      }, parseInt(((Math.random() - 0.5) + 1) * 500), 10) // 0-2s的随机数
+      }, parseInt(((Math.random() - 0.5) + 1) * 500, 10)) // 随机数
     })
   }
 }).listen(1111)
-console.log('正在监听1111端口')
+console.log('listening port 1111')

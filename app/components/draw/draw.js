@@ -1,9 +1,3 @@
-/*
- * @Author: duxianwei
- * @Date: 2017-08-17 19:24:59
- * @Last Modified by: dupi
- * @Last Modified time: 2018-06-08 14:05:41
- */
 
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
@@ -27,7 +21,7 @@ export default class Drawer extends Component {
       drawTrasformClass: '',
       maskTrasformClass: '',
       drawerSizeClass: 'modal-base',
-      drawerSizeClassList: ['modal-base', 'modal-sm', 'modal-lg'],
+      // drawerSizeClassList: ['modal-base', 'modal-sm', 'modal-lg'],
     }
   }
 

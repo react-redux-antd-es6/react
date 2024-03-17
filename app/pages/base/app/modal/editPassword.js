@@ -1,14 +1,14 @@
-
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Button, Form, Input, Select, Modal, Row, Col, message } from 'antd'
+import { Button, Form, Input, /* Select, */ Modal, Row, Col, message } from 'antd'
 import { regExpConfig } from '@reg'
+import md5 from 'md5'
 import {
   fetchPassword,
 } from '@actions/common'
 
 const FormItem = Form.Item
-const Option = Select.Option
+// const Option = Select.Option
 
 // 连接公用常量、后端返回的数据方法  并放置在props里面调用
 @connect((state, props) => ({
@@ -41,6 +41,14 @@ export default class index extends Component {
       if (errors) {
         return
       }
+
+      if (fieldsValue.password) {
+        // if (process.env.NODE_ENV === 'production') {
+        //   fieldsValue.password = fieldsValue.password
+        // } else {
+        fieldsValue.password = md5(fieldsValue.password)
+        // }
+      }
       const values = {
         oldPwd: fieldsValue.oldPwd ? fieldsValue.oldPwd : '',
         password: fieldsValue.password ? fieldsValue.password : '',
@@ -65,7 +73,7 @@ export default class index extends Component {
   }
 
   checkPassword = (rule, value, callback) => {
-    const form = this.props.form
+    const { form } = this.props
     if (value && value !== form.getFieldValue('password')) {
       callback('两次输入的密码不一致')
     } else {
@@ -74,7 +82,7 @@ export default class index extends Component {
   }
 
   checkConfirm = (rule, value, callback) => {
-    const form = this.props.form
+    const { form } = this.props
     if (value && this.state.confirmDirty) {
       form.validateFields(['confirm'], { force: true })
     }
@@ -92,7 +100,7 @@ export default class index extends Component {
   }
 
   render() {
-    const imageUrl = this.state.imageUrl
+    // const { imageUrl } = this.state
     const { getFieldDecorator } = this.props.form
     const formItemLayout = {
       labelCol: { span: 6 },

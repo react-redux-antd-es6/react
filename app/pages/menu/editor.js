@@ -5,6 +5,23 @@ import { Editor, EditorState, RichUtils } from 'draft-js'
 import 'draft-js/dist/Draft.css'
 import '@styles/RichEditor.less'
 
+// Custom overrides for "code" style.
+const styleMap = {
+  CODE: {
+    backgroundColor: 'rgba(0, 0, 0, 0.05)',
+    fontFamily: '"Inconsolata", "Menlo", "Consolas", monospace',
+    fontSize: 16,
+    padding: 2,
+  },
+}
+
+function getBlockStyle(block) {
+  switch (block.getType()) {
+    case 'blockquote': return 'RichEditor-blockquote';
+    default: return null;
+  }
+}
+
 @connect((state, props) => ({
   config: state.config,
 }))
@@ -13,7 +30,7 @@ export default class app extends Component {
     super(props);
     this.state = { editorState: EditorState.createEmpty() };
 
-    this.focus = () => this.refs.editor.focus();
+    this.focus = () => this.editor.focus()
     this.onChange = editorState => this.setState({ editorState });
 
     this.handleKeyCommand = this._handleKeyCommand.bind(this);
@@ -82,7 +99,8 @@ export default class app extends Component {
             onChange={this.onChange}
             onTab={this.onTab}
             placeholder="Tell a story..."
-            ref="editor"
+            // ref="editor"
+            ref={(c) => { this.editor = c }}
             spellCheck
           />
         </div>
@@ -91,22 +109,6 @@ export default class app extends Component {
   }
 }
 
-// Custom overrides for "code" style.
-const styleMap = {
-  CODE: {
-    backgroundColor: 'rgba(0, 0, 0, 0.05)',
-    fontFamily: '"Inconsolata", "Menlo", "Consolas", monospace',
-    fontSize: 16,
-    padding: 2,
-  },
-};
-
-function getBlockStyle(block) {
-  switch (block.getType()) {
-    case 'blockquote': return 'RichEditor-blockquote';
-    default: return null;
-  }
-}
 
 class StyleButton extends React.Component {
   constructor() {

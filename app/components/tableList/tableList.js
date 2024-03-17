@@ -22,7 +22,7 @@ export default class TableList extends Component {
         const ths = document.querySelectorAll('.ant-table-header th')
         if (tds && tds.length) {
           clearInterval(this.t)
-          for (let i = 0; i < tds.length; i++) {
+          for (let i = 0; i < tds.length; i += 1) {
             const tdw = tds[i].offsetWidth
             const thw = ths[i].offsetWidth
             const w = (tdw > thw) ? tdw : thw

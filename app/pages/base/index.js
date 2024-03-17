@@ -4,7 +4,7 @@ import developing from './developing'
 import example from './example'
 import login from './login'
 import notfound from './notfound'
-import welcome from './welcome'
 import app from './app'
+// import socketReceive from './socketReceive'
 
-export { developing, example, login, notfound, welcome, app }
+export { developing, example, /*  socketReceive, */ login, notfound, app }

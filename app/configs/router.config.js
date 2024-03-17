@@ -1,42 +1,21 @@
 import React from 'react'
-import { Router, Route, IndexRoute, hashHistory, Redirect } from 'react-router'
+import { Router, Route, IndexRoute, hashHistory/* , Redirect */ } from 'react-router'
 import { isLogin } from '@configs/common'
 import { set } from '@config'
 
 import * as base from '@pages/base' // 基础
-import * as sysSet from '@pages/setCenter' // 设置中心-系统设置
-// import * as menu from '@pages/menu' // 菜单
-
-// 图表
-const echarts = (location, cb) => {
-  require.ensure([], (require) => {
-    cb(null, require('../pages/menu/echarts').default)
-  }, 'echarts')
-}
-
-// 测试
-const chat = (location, cb) => {
-  require.ensure([], (require) => {
-    cb(null, require('../pages/menu/chat').default)
-  }, 'chat')
-}
-
-// 编辑器
-const editor = (location, cb) => {
-  require.ensure([], (require) => {
-    cb(null, require('../pages/menu/editor').default)
-  }, 'editor')
-}
+import * as sysSet from '@pages/set' // 设置中心-系统设置
+import * as menu from '@pages/menu' // 菜单
 
 export default () => (
   <Router history={hashHistory}>
     <Route path="/" component={base.app} onEnter={isLogin}>
-      <IndexRoute component={base.welcome} />
+      <IndexRoute component={base.example} />
       <Route path="/desk$/index" component={base.example} />
+      {/* <Route path="/socketReceive" component={base.socketReceive} /> */}
       {/** *菜单 开始 */}
-      <Route path="/echarts" getComponent={echarts} />
-      <Route path="/editor" getComponent={editor} />
-      <Route path="/chat" getComponent={chat} />
+      <Route path="/echarts" component={menu.echarts} />
+      <Route path="/editor" component={menu.editor} />
       {/** *菜单 结束 */}
       {/** *系统设置 开始 */}
       <Route path={`/${set}/userManage`} component={sysSet.userManage} />

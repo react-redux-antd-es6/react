@@ -1,7 +1,7 @@
 
 import { hashHistory } from 'react-router'
 import { message } from 'antd'
-import { loginByTicket, staff, nav, login as loginApi, getBtns } from '@apis/common'
+import { loginByTicket, staff, login as loginApi, getBtns } from '@apis/common'
 
 export function parseQueryString(url) {
   const obj = {}
@@ -10,6 +10,7 @@ export function parseQueryString(url) {
     const strs = str.split('&')
     strs.map((item, i) => {
       const arr = strs[i].split('=')
+      /* eslint-disable */
       obj[arr[0]] = arr[1]
     })
   }

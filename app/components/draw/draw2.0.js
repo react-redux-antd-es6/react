@@ -1,8 +1,8 @@
 /*
  * @Author: 韩卿
  * @Date: 2017-08-20 16:07:21
- * @Last Modified by: 韩卿
- * @Last Modified time: 2017-08-20 16:21:01
+ * @Last Modified by: dupi
+ * @Last Modified time: 2018-10-22 17:10:34
  */
 
 
@@ -25,7 +25,7 @@ export default class Drawer extends Component {
       drawTrasformClass: '',
       maskTrasformClass: '',
       drawerSizeClass: 'modal-base',
-      drawerSizeClassList: ['modal-base', 'modal-sm', 'modal-lg'],
+      // drawerSizeClassList: ['modal-base', 'modal-sm', 'modal-lg'],
     }
   }
 
